@@ -1,0 +1,20 @@
+import { ButtonProps } from "@/types/types";
+import React from "react";
+
+function Button({ label, btnClickHandle, color }: ButtonProps) {
+  const localBtnHandle = () => {
+    if (btnClickHandle) {
+      btnClickHandle();
+    }
+  };
+  return (
+    <button
+      onClick={localBtnHandle}
+      className={`px-1 btn py-1 rounded-md text-white  ${color}`}
+    >
+      {label}
+    </button>
+  );
+}
+
+export default Button;
