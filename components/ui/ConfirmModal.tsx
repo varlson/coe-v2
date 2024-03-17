@@ -13,9 +13,16 @@ function ConfirmModal({ isOpen, setIsOpen }: DefaultModalProps) {
       <div
         onClick={() => {}}
         id="modal-bg"
-        className={` opacity-50 bg-blacks absolute inset-0 `}
+        className={` ${
+          isOpen ? "bg-anim" : ""
+        } opacity-50 bg-blacks absolute inset-0 `}
       ></div>
-      <div id="wrap" className={`z-50 shadow-md  relative w-4/12 bg-white p-2`}>
+      <div
+        id="wrap"
+        className={` ${
+          isOpen ? "rot-anim" : ""
+        } z-50 shadow-md  relative w-4/12 bg-white p-2 rounded confirm-modal`}
+      >
         <div className="">
           <p className="text-center p-2 ">Deseja apagar ?</p>
         </div>

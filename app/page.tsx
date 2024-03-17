@@ -14,7 +14,7 @@ export default function Home() {
     "
     >
       <Modal
-        modalType={ModalTypes.ConfirmModal}
+        modalType={ModalTypes.SpinnerModal}
         setIsOpen={setClose}
         isOpen={isOpen}
       />

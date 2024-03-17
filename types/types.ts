@@ -1,6 +1,7 @@
 export enum ModalTypes {
   ConfirmModal = 1,
   DefaultModal,
+  SpinnerModal,
 }
 
 export interface DefaultModalProps {
@@ -17,3 +18,9 @@ export interface ButtonProps {
   btnClickHandle?: () => void;
   color: string;
 }
+
+export type LanLabelType = {
+  pt: string;
+  es: string;
+  en: string;
+};

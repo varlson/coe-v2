@@ -8,10 +8,7 @@ function Button({ label, btnClickHandle, color }: ButtonProps) {
     }
   };
   return (
-    <button
-      onClick={localBtnHandle}
-      className={`px-1 btn py-1 rounded-md text-white  ${color}`}
-    >
+    <button onClick={localBtnHandle} className={`btn ${color}`}>
       {label}
     </button>
   );
