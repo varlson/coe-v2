@@ -1,0 +1,11 @@
+.title1 {
+  @apply text-xl font-bold font-oswald uppercase;
+}
+
+.title2 {
+  @apply text-xl font-semibold font-oswald uppercase;
+}
+
+.title3 {
+  @apply font-semibold font-oswald;
+}

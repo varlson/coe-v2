@@ -24,3 +24,26 @@ export type LanLabelType = {
   es: string;
   en: string;
 };
+
+export enum IconTypes {
+  DefaultIcon = 1,
+  ClickableIcon,
+}
+
+export type SubMenuItemsType = {
+  home: boolean;
+  course: boolean;
+  infra: boolean;
+  search: boolean;
+  scholarships: boolean;
+  contacts: boolean;
+};
+
+export const defaultSubMenus: SubMenuItemsType = {
+  home: false,
+  scholarships: false,
+  search: false,
+  infra: false,
+  contacts: false,
+  course: false,
+};

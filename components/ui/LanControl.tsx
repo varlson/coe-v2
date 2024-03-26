@@ -2,7 +2,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import SpinnerModal from "./SpinnerModal";
-import { LanLabelType } from "@/types/types";
+import { IconTypes, LanLabelType } from "@/types/types";
 import { labelLanguage } from "@/constants/labels";
 
 const defaultValues = {
@@ -69,12 +69,16 @@ function LanguageControl() {
     <>
       <SpinnerModal isOpen={isLoading} setIsOpen={() => {}} />
       <div className="flex gap-x-1 p-2 items-center">
-        <Icon src={currentLanguage} />
+        <Icon
+          iconType={IconTypes.DefaultIcon}
+          styles=""
+          src={currentLanguage}
+        />
         <select
           onChange={handleChange}
-          className="p-1 active:text-white p-2 active:bg-slate-700"
-          name="language" // Added a name for accessibility
-          id="language" // Added an ID for potential targeting
+          className="px-1  py-0 font-jura text-sm font-bold active:text-white active:bg-slate-700"
+          name="language"
+          id="language"
         >
           <option selected={selectOpstions.pt} className="mt-3 py-3" value="pt">
             {lanLabel.pt}

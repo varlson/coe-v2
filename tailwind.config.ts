@@ -13,6 +13,21 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        nunito: ["var(--font-nunito)"],
+        jura: ["var(--font-jura)"],
+        play_fair: ["var(--font-playFair)"],
+        oswald: ["var(--font-oswald)"],
+      },
+      colors: {
+        dred: "#D9280D",
+        red800: "#a71c07",
+        dblack: "#303030",
+        red900: "#873926",
+        red950: "#943e29",
+        dblack900: "#0a0301",
+        darkLight: "#f2f2f2",
+      },
     },
   },
   plugins: [],

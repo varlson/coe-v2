@@ -16,3 +16,36 @@
   @apply py-2 px-3 text-center duration-150 hover:scale-105 hover:bg-white hover:border hover:border-red-500 hover:text-red-500;
   @apply text-white rounded-md;
 }
+
+.expand-collapse-in {
+  animation: expand-collapse-anim-in 0.5s;
+}
+
+.expand-collapse-out {
+  animation: expand-collapse-anim-out 0.5s;
+}
+
+@keyframes expand-collapse-anim-in {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes expand-collapse-anim-out {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+}
