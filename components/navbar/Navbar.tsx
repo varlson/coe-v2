@@ -1,14 +1,14 @@
 import React from "react";
 import LanControl from "../ui/LanControl";
 import Logo from "../ui/Logo";
-import Icon from "../ui/Icon";
+import Icon from "../ui/icons/Icon";
 import { IconTypes } from "@/types/types";
 import SubMenu from "../subMenun/SubMenu";
 
 function Navbar() {
   return (
-    <div className="bg-dblack900 ">
-      <div className="flex w-9/12 pb-7 m-auto justify-between">
+    <div className="bg-dblack900 navbar">
+      <div className="flex w-9/12 pb-7 m-auto justify-between pt-2">
         <Logo />
         <div className="flex justify-center items-center">
           <Icon

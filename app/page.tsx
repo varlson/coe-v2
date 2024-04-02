@@ -1,5 +1,9 @@
 "use client";
+import Cards from "@/components/card/Cards";
+import LeftSide from "@/components/leftSide/LeftSide";
 import Modal from "@/components/modal/Modal";
+import RightSide from "@/components/rightSide/RightSide";
+import Slide from "@/components/slide/Slide";
 import { ModalTypes } from "@/types/types";
 import { useState } from "react";
 
@@ -9,25 +13,23 @@ export default function Home() {
     setIsOpen(false);
   };
   return (
-    <main className="bg-black text-white text-xl">
-      <div className="w-9/12 m-auto">
-        <p className="title1">Hello world</p>
-        <p className="my-10 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-          sequi quo distinctio, nulla facere enim nihil accusantium explicabo
-          fugit quod tenetur sit debitis? Suscipit qui, debitis vero ut
-          molestiae eum. Aut, architecto labore? Adipisci animi ut, omnis cum,
-          sequi ab, quos ratione reiciendis velit inventore aliquid accusantium
-          pariatur! Sequi cumque officiis eius nulla! Omnis, atque in cumque at
-          fuga perspiciatis! Voluptate voluptates sed magni adipisci,
-          voluptatibus, velit ipsum pariatur neque perspiciatis minus rerum
-          explicabo repellendus expedita debitis dolores libero! Incidunt animi
-          aliquam velit in est sunt mollitia molestiae reiciendis inventore!
-          Quis officiis sequi dolor iure quos repellat, recusandae vero! Quidem,
-          perspiciatis unde assumenda consectetur laborum veniam libero soluta?
-          Totam accusamus ullam blanditiis ut rem vel voluptas voluptatum esse
-          quisquam ad.
-        </p>
+    <main className="w-9/12 m-auto ">
+      <div className="text-white fixed left-0 right-0  asides ">
+        <div className="flex justify-between ">
+          <div className="ml-4">
+            <LeftSide />
+          </div>
+          <div className="mr-4">
+            <RightSide />
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 ">
+        <Slide />
+      </div>
+
+      <div className="my-5">
+        <Cards />
       </div>
     </main>
   );

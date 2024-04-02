@@ -1,3 +1,5 @@
+import React from "react";
+
 export enum ModalTypes {
   ConfirmModal = 1,
   DefaultModal,
@@ -7,6 +9,7 @@ export enum ModalTypes {
 export interface DefaultModalProps {
   isOpen: boolean;
   setIsOpen: () => void;
+  children?: React.ReactNode;
 }
 
 export interface ModalProps extends DefaultModalProps {
@@ -47,3 +50,48 @@ export const defaultSubMenus: SubMenuItemsType = {
   contacts: false,
   course: false,
 };
+
+export type SubMenuType = {
+  menu: string;
+  id: string;
+  subItens: {
+    label: string;
+    link: string;
+  }[];
+};
+
+export type IPost = {
+  noticeNumber?: string;
+  _id?: string;
+  title: string;
+  img: string;
+  resumo: string;
+  body: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+  postType: number;
+  author: any;
+  edit_by?: any;
+};
+
+export interface IUser extends Document {
+  name: string;
+  username: string;
+  password: string;
+  avatar: string;
+  activityStatus: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  premissionRole: number;
+  passRecovery?: string;
+}
+
+export enum PostTypes {
+  SLIDE = 1,
+  NEWS,
+  NOTICE,
+  SLIDE_AND_NEWS,
+  SLIDE_AND_NOTICE,
+  NOTICE_AND_NEWS,
+  ALL,
+}

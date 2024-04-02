@@ -1,9 +1,9 @@
 .title1 {
-  @apply text-xl font-bold font-oswald uppercase;
+  @apply text-xl font-bold font-jura;
 }
 
 .title2 {
-  @apply text-xl font-semibold font-oswald uppercase;
+  @apply text-xl font-semibold font-jura;
 }
 
 .title3 {

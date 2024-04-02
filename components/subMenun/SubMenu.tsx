@@ -2,155 +2,164 @@
 import React, { useEffect, useState } from "react";
 import SubMenuItem from "../ui/SubMenuItem";
 import { defaultSubMenus, IconTypes, SubMenuItemsType } from "@/types/types";
-import Icon from "../ui/Icon";
+import Icon from "../ui/icons/Icon";
+import { menus } from "@/constants/labels";
+import { useContextApp } from "@/context/Context";
 
 function SubMenu() {
+  const { lanInitializer, menuLan } = useContextApp();
+  const [defaultLan, setDefaultLan] = useState(menus);
   const [subMenus, setSubMenus] = useState<SubMenuItemsType>(defaultSubMenus);
-  const [show, setShow] = useState<boolean>(false);
+  const expandHandle = (curr: string) => {
+    if (!subMenus[curr]) {
+      setSubMenus({ ...defaultSubMenus, [curr]: true });
 
-  const anyOpened = (curr: string) => {
-    Object.entries(subMenus).forEach(([key, value]) => {
-      if (value && key != curr) return true;
-    });
-
-    return false;
-  };
-
-  const collapse = (curr: string) => {
-    const submenu = document.getElementById(curr) as HTMLElement;
-    if (submenu) submenu.style.maxHeight = "0px";
-  };
-
-  const expand = (curr: string) => {
-    const submenu = document.getElementById(curr) as HTMLElement;
-    submenu.style.maxHeight = submenu.scrollHeight + "px";
-  };
-
-  const teste = async (curr: string) => {
-    Object.entries(subMenus).forEach(([key, value]) => {
-      if (value == true && key != curr) {
-        collapse(key);
-        setSubMenus((prev) => ({
-          ...prev,
-          [key]: false,
-        }));
-      }
-    });
-  };
-
-  const expandHandle = async (curr: string) => {
-    await teste(curr);
-    if (subMenus[curr]) {
-      await setSubMenus((prev) => ({
-        ...prev,
-        [curr]: false,
-      }));
-
-      collapse(curr);
+      setTimeout(() => {
+        const menu = document.getElementById(curr) as HTMLDivElement;
+        menu.style.maxHeight = menu.scrollHeight + "px";
+      }, 10);
     } else {
-      await setSubMenus((prev) => ({
-        ...prev,
-        [curr]: true,
-      }));
-
-      expand(curr);
+      setSubMenus(defaultSubMenus);
     }
   };
 
+  useEffect(() => {
+    const lanGuageInitializer = async () => {
+      await lanInitializer();
+      if (menuLan.length) {
+        setDefaultLan(menuLan);
+      }
+    };
+
+    lanGuageInitializer();
+  }, [menuLan, lanInitializer]);
+
   return (
-    <div className="m-0 text-white bg-red950 ">
-      <div className="flex justify-around">
+    <div className="flex flex-col ">
+      <div className="flex gap-x-4 justify-between">
         <div
-          onClick={() => expandHandle("home")}
-          className={` ${
+          onClick={() => {
+            expandHandle("home");
+          }}
+          className={`  self-start ${
             subMenus.home ? "bg-dred" : ""
-          } p-2 gap-x-1 flex  self-start items-center cursor-pointer`}
+          } flex gap-x-2 p-2  items-center cursor-pointer`}
         >
-          <p className="title3">COEE</p>
-
-          <div
-            className={
-              subMenus.home ? "expand-collapse-out" : "expand-collapse-in"
-            }
-          >
-            <Icon
-              src={subMenus.home ? `collapse` : "expand"}
-              styles="h-4 w-5"
-              iconType={IconTypes.DefaultIcon}
-            />
-          </div>
+          <p className="title1">COEE</p>
+          <Icon
+            styles={`h-4 w-5 ${
+              subMenus.home ? "expand-collapse-in" : "expand-collapse-out"
+            } `}
+            src="expand"
+            iconType={IconTypes.DefaultIcon}
+          />
         </div>
 
         <div
-          onClick={() => expandHandle("search")}
-          className={` ${
-            subMenus.search ? "bg-dred" : ""
-          } p-2 gap-x-1 flex  self-start items-center cursor-pointer`}
+          onClick={() => {
+            expandHandle("course");
+          }}
+          className={`self-start ${
+            subMenus.course ? "bg-dred" : ""
+          } flex gap-x-2 p-2  items-center cursor-pointer`}
         >
-          <p className="title3">Cursos</p>
-
-          <div
-            className={
-              subMenus.search ? "expand-collapse-out" : "expand-collapse-in"
-            }
-          >
-            <Icon
-              src={subMenus.search ? `collapse` : "expand"}
-              styles="h-4 w-5"
-              iconType={IconTypes.DefaultIcon}
-            />
-          </div>
+          <p className="title1">{defaultLan[2].menu}</p>
+          <Icon
+            styles={`h-4 w-5 ${
+              subMenus.course ? "expand-collapse-in" : "expand-collapse-out"
+            } `}
+            src="expand"
+            iconType={IconTypes.DefaultIcon}
+          />
         </div>
 
         <div
-          onClick={() => expandHandle("infra")}
-          className={` ${
+          onClick={() => {
+            expandHandle("infra");
+          }}
+          className={`self-start ${
             subMenus.infra ? "bg-dred" : ""
-          } p-2 gap-x-1 flex  self-start items-center cursor-pointer`}
+          } flex gap-x-2 p-2  items-center cursor-pointer`}
         >
-          <p className="title3">Infra</p>
-
-          <div
-            className={
-              subMenus.infra ? "expand-collapse-out" : "expand-collapse-in"
-            }
-          >
-            <Icon
-              src={subMenus.infra ? `collapse` : "expand"}
-              styles="h-4 w-5"
-              iconType={IconTypes.DefaultIcon}
-            />
-          </div>
+          <p className="title1">{defaultLan[3].menu}</p>
+          <Icon
+            styles={`h-4 w-5 ${
+              subMenus.infra ? "expand-collapse-in" : "expand-collapse-out"
+            } `}
+            src="expand"
+            iconType={IconTypes.DefaultIcon}
+          />
         </div>
 
         <div
-          onClick={() => expandHandle("scholarships")}
-          className={` ${
+          onClick={() => {
+            expandHandle("scholarships");
+          }}
+          className={`self-start ${
             subMenus.scholarships ? "bg-dred" : ""
-          } p-2 gap-x-1 flex  self-start items-center cursor-pointer`}
+          } flex gap-x-2 p-2  items-center cursor-pointer`}
         >
-          <p className="title3">Bolsas</p>
-
-          <div
-            className={
+          <p className="title1">{defaultLan[1].menu}</p>
+          <Icon
+            styles={`h-4 w-5 ${
               subMenus.scholarships
-                ? "expand-collapse-out"
-                : "expand-collapse-in"
-            }
-          >
-            <Icon
-              src={subMenus.scholarships ? `collapse` : "expand"}
-              styles="h-4 w-5"
-              iconType={IconTypes.DefaultIcon}
-            />
-          </div>
+                ? "expand-collapse-in"
+                : "expand-collapse-out"
+            } `}
+            src="expand"
+            iconType={IconTypes.DefaultIcon}
+          />
+        </div>
+
+        <div
+          onClick={() => {
+            expandHandle("search");
+          }}
+          className={`self-start ${
+            subMenus.search ? "bg-dred" : ""
+          } flex gap-x-2 p-2  items-center cursor-pointer`}
+        >
+          <p className="title1">{defaultLan[4].menu}</p>
+          <Icon
+            styles={`h-4 w-5 ${
+              subMenus.search ? "expand-collapse-in" : "expand-collapse-out"
+            } `}
+            src="expand"
+            iconType={IconTypes.DefaultIcon}
+          />
+        </div>
+
+        <div
+          onClick={() => {
+            expandHandle("contacts");
+          }}
+          className={`self-start ${
+            subMenus.contacts ? "bg-dred" : ""
+          } flex gap-x-2 p-2  items-center cursor-pointer`}
+        >
+          <p className="title1">{defaultLan[5].menu}</p>
+          <Icon
+            styles={`h-4 w-5 ${
+              subMenus.contacts ? "expand-collapse-in" : "expand-collapse-out"
+            } `}
+            src="expand"
+            iconType={IconTypes.DefaultIcon}
+          />
         </div>
       </div>
 
-      {subMenus.home && <SubMenuItem />}
-      {subMenus.search && <SubMenuItem />}
-      {subMenus.infra && <SubMenuItem />}
-      {subMenus.scholarships && <SubMenuItem />}
+      <div
+        className={`${
+          defaultSubMenus != subMenus ? "bg-dred" : "bg-red900"
+        } p-2 `}
+      >
+        {subMenus.home && <SubMenuItem {...menuLan[0]} />}
+        {subMenus.scholarships && <SubMenuItem {...menus[1]} />}
+        {subMenus.course && <SubMenuItem {...menuLan[2]} />}
+        {subMenus.infra && <SubMenuItem {...menuLan[3]} />}
+        {subMenus.search && <SubMenuItem {...menuLan[4]} />}
+        {subMenus.contacts && <SubMenuItem {...menuLan[5]} />}
+      </div>
     </div>
   );
 }

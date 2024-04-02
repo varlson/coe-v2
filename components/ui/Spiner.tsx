@@ -6,9 +6,9 @@ function Spiner() {
     <div className="flex justify-center items-center">
       <TailSpin
         visible={true}
-        height="50"
-        width="50"
-        color="#4fa94d"
+        height="60"
+        width="60"
+        color="#873926"
         ariaLabel="tail-spin-loading"
         radius="1"
         wrapperStyle={{}}

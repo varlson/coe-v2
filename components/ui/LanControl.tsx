@@ -1,9 +1,10 @@
 "use client";
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
-import Icon from "./Icon";
+import Icon from "./icons/Icon";
 import SpinnerModal from "./SpinnerModal";
 import { IconTypes, LanLabelType } from "@/types/types";
 import { labelLanguage } from "@/constants/labels";
+import { useContextApp } from "@/context/Context";
 
 const defaultValues = {
   pt: false,
@@ -14,6 +15,7 @@ const defaultValues = {
 function LanguageControl() {
   const [currentLanguage, setCurrentLanguage] = useState<string>("pt");
   const [isLoading, setIsLoading] = useState(true);
+  const { lanInitializer } = useContextApp();
 
   const [lanLabel, setLanLabel] = useState<LanLabelType>({
     pt: "Português",
@@ -21,7 +23,7 @@ function LanguageControl() {
     en: "Inglês",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = async (e: ChangeEvent<HTMLSelectElement>) => {
     const language = e.target.value || "pt";
     setCurrentLanguage(e.target.value);
     localStorage.setItem("lan", language);
@@ -32,6 +34,7 @@ function LanguageControl() {
       currLabel = labelLanguage.pt;
     }
     setLanLabel(currLabel);
+    await lanInitializer();
   };
 
   const [selectOpstions, setSelectOpstions] = useState(defaultValues);
@@ -49,8 +52,6 @@ function LanguageControl() {
       } else {
         currLabel = labelLanguage.pt;
       }
-
-      //   const currLabel: LanLabelType = labelLanguage[lan];
 
       setLanLabel(currLabel);
       setCurrentLanguage(lan);

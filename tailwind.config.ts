@@ -27,6 +27,10 @@ const config: Config = {
         red950: "#943e29",
         dblack900: "#0a0301",
         darkLight: "#f2f2f2",
+        testeColor: "#e8e3e3",
+      },
+      listStyleType: {
+        roman: "upper-roman",
       },
     },
   },

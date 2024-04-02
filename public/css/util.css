@@ -47,5 +47,69 @@
 
 .submenu {
   max-height: 0;
+  padding: 1px;
   overflow: hidden;
+}
+
+.submenuitem {
+  width: 172px;
+  @apply justify-center;
+}
+
+.submenu-anim {
+  max-height: 0px;
+  transition: all 0.1s ease-in-out;
+}
+
+@keyframes submenu-anim-key {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: auto;
+  }
+}
+
+.slide-resume {
+  bottom: 0px;
+  @apply bg-black opacity-50 text-white p-2;
+}
+
+.navbar {
+  min-height: 162px;
+}
+
+.main {
+  background-color: #f2eceb;
+}
+
+.footer-group {
+  @apply md:border-none border-b border-dblack900 py-2 my-3;
+}
+
+.asides {
+  top: 200px;
+}
+
+.sub-item {
+  max-height: 0px;
+  overflow: hidden;
+}
+
+/* INFO STYLES */
+
+.info-title {
+  @apply bg-red900 p-2 text-white;
+}
+.body-info {
+  @apply bg-white p-5;
+}
+
+.one-stats:hover div {
+  opacity: 0.8;
+}
+
+.link {
+  @apply text-blue-500 hover:underline;
 }

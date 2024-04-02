@@ -1,6 +1,6 @@
 import { DefaultModalProps } from "@/types/types";
 
-function DefaultModal({ isOpen, setIsOpen }: DefaultModalProps) {
+function DefaultModal({ isOpen, setIsOpen, children }: DefaultModalProps) {
   const closHandle = () => {
     const wrap = document.getElementById("wrap") as HTMLDivElement;
     wrap.classList.add("close-anim");
@@ -25,7 +25,7 @@ function DefaultModal({ isOpen, setIsOpen }: DefaultModalProps) {
         id="wrap"
         className={` ${
           isOpen ? "rot-anim" : ""
-        } z-50 relative w-7/12 bg-white h-3/6`}
+        } z-50 relative w-9/12 bg-white `}
       >
         <div className="shadow-md bg-zync-300 border-b p-2 flex ">
           <p className="text-center font-bold flex-1">Modal Title</p>
@@ -36,6 +36,8 @@ function DefaultModal({ isOpen, setIsOpen }: DefaultModalProps) {
             X
           </p>
         </div>
+
+        <div className="px-2 py-5">{children}</div>
       </div>
     </div>
   );
