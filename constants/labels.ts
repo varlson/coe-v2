@@ -6,21 +6,21 @@ export const labelLanguage: {
   en: LanLabelType;
 } = {
   pt: {
-    pt: "Português",
-    es: "Espanhol",
-    en: "Inglês",
+    pt: "PT",
+    es: "ES",
+    en: "IN",
   },
 
   es: {
-    pt: "Portugués",
-    es: "Español",
-    en: "Inglés",
+    pt: "PT",
+    es: "ES",
+    en: "IN",
   },
 
   en: {
-    pt: "Portuguese",
-    es: "Spanish",
-    en: "English",
+    pt: "PT",
+    es: "SPN",
+    en: "EN",
   },
 };
 
@@ -39,7 +39,7 @@ export const menus: SubMenuType[] = [
     menu: "Bolsa",
     id: "scholarships",
     subItens: [
-      { label: "Pesquisas de Iniciação Científica", link: "/bolsas/ic" },
+      { label: "Iniciação Científica", link: "/bolsas" },
       { label: "Extensão", link: "/bolsas/extensao" },
       { label: "Institucional", link: "/bolsas/institucional" },
       { label: "Pro-Ativa", link: "/bolsas/pro-ativa" },

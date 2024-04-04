@@ -7,13 +7,13 @@ function Logo() {
     <Link href="/">
       <div className="flex text-white gap-x-2 justify-center items-center">
         <Image
-          className="h-12 w-5"
+          className=" h-8 w-4 md:h-12 md:w-5"
           src="/imgs/ufop.jpg"
           height={200}
           width={200}
           alt="Ufop logo"
         />
-        <div className="font-oswald flex flex-col">
+        <div className="font-oswald flex flex-col ">
           <p className="font-bold text-sm">
             Colegiado do Curso da Engenharia Elétrica
           </p>

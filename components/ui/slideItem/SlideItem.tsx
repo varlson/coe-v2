@@ -3,7 +3,7 @@ import React from "react";
 
 function SlideItem({ src }: { src: string }) {
   return (
-    <div className="relative h-[calc(100vh-200px)] bg-slate-400 ">
+    <div className="relative md:h-[calc(100vh-200px)] bg-slate-400 ">
       <div className="absolute slide-resume">
         <p className="w-9/12 m-auto">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam id

@@ -15,12 +15,12 @@ export const menus: SubMenuType[] = [
     menu: "Bolsa",
     id: "scholarships",
     subItens: [
-      { label: "Pesquisas de Iniciação Científica", link: "/bolsas/ic" },
-      { label: "Extensão", link: "/bolsas/extensao" },
-      { label: "Institucional", link: "/bolsas/institucional" },
-      { label: "Pro-Ativa", link: "/bolsas/pro-ativa" },
-      { label: "Monitoria", link: "/bolsas/monitoria" },
-      { label: "PRACE", link: "/bolsas/prace" },
+      { label: "Iniciação Científica", link: "/bolsas" },
+      { label: "Extensão", link: "#extensao" },
+      { label: "Institucional", link: "#institutional" },
+      { label: "Pro-Ativa", link: "#pro-ativa" },
+      { label: "Monitoria", link: "#monitoria" },
+      { label: "PRACE", link: "#alimentacao" },
     ],
   },
 
@@ -47,9 +47,9 @@ export const menus: SubMenuType[] = [
     menu: "Pesquisa e Extensão",
     id: "search",
     subItens: [
-      { label: "Projetos de Pesquisa", link: "/projetos-pesquisa" },
-      { label: "Grupos de Pesquisa", link: "/grupos-pesquisa" },
-      { label: "Projetos de Extensão", link: "/projeto-extensao" },
+      { label: "Projetos de Pesquisa", link: "/pesquisa" },
+      { label: "Grupos de Pesquisa", link: "/pesquisa/grupos" },
+      { label: "Projetos de Extensão", link: "/pesquisa/extensao" },
     ],
   },
 
@@ -199,12 +199,12 @@ export const colegiate_info = {
       {
         name: "Laboratório de eletrônica digital",
         src: "",
-        text: "Neste laboratório são desenvolvidas as aulas práticas das disciplinasda área de eletrônica digital, que fazem parte da grade curricular dos alunos de engenharia elétrica e de computação.O laboratório também é utilizado para o desenvolvimento de projetos de iniciação científica, extensão e trabalhos de conclusão de curso.&Atualmente, são ministradas neste laboratório as seguintes disciplinas obrigatórias:<CEA341 – Princípios de Eletrônica Digital;CEA580 - Microprocessadores e Microcontroladores;CEA147 - Eletrônica Embarcada.<&Além disso, também podem ser ministradas as seguintes disciplinas eletivas:&<Sistemas embarcados aplicados a sistemas de controle;Automação em tempo real;Interfaceamento de sistemas;Automação residencial.<&Durante as aulas práticas, os estudantes têm à disposição os seguintes equipamentos:&<Computadores com acesso à internet;Fontes de alimentação ajustáveis;Geradores de Sinais;Multímetros;Osciloscópios Digitais;Kits de desenvolvimento com circuitos lógicos, microcontroladores e FPGA’s;Protoboards e componentes eletrônicos diversos.&O laboratório também conta com o suporte de um técnico que,juntamente com os professores responsáveis pelas disciplinas, acompanha os estudantes durante as aulas práticas e os auxilia no desenvolvimento de projetos de pesquisa e extensão.",
+        text: "Neste laboratório são desenvolvidas as aulas práticas das disciplinasda área de eletrônica digital, que fazem parte da grade curricular dos alunos de engenharia elétrica e de computação.O laboratório também é utilizado para o desenvolvimento de projetos de iniciação científica, extensão e trabalhos de conclusão de curso.&Atualmente, são ministradas neste laboratório as seguintes disciplinas obrigatórias:< - CEA341 – Princípios de Eletrônica Digital; - CEA580 - Microprocessadores e Microcontroladores; - CEA147 - Eletrônica Embarcada.&Além disso, também podem ser ministradas as seguintes disciplinas eletivas:< - Sistemas embarcados aplicados a sistemas de controle; - Automação em tempo real; - Interfaceamento de sistemas; - Automação residencial.& Durante as aulas práticas, os estudantes têm à disposição os seguintes equipamentos:< - Computadores com acesso à internet; - Fontes de alimentação ajustáveis; - Geradores de Sinais; - Multímetros; - Osciloscópios Digitais; - Kits de desenvolvimento com circuitos lógicos, microcontroladores e FPGA’s; - Protoboards e componentes eletrônicos diversos.&O laboratório também conta com o suporte de um técnico que juntamente com os professores responsáveis pelas disciplinas, acompanha os estudantes durante as aulas práticas e os auxilia no desenvolvimento de projetos de pesquisa e extensão.",
       },
     ],
   },
   search: {
-    goups: {
+    groups: {
       title: "Grupos de Pesquisa",
       text: "*Aplicações de Smart Grids nos Sistemas Elétricos de Potência (GASGSEP)*&Este grupo desenvolve trabalhos na área de análise e otimização de sistemas elétricos de potência (SEP) em regimes permanente e transitório, considerando o contexto das Smart Grids e energias renováveis. Além de visar as cidades inteligentes. Dentro destes cenarios estuda-se os fenômenos de qualidade da energia e a proteção dos sistemas elétricos.&*Modelagem, Identificação, Instrumentação e Controle (MI2C)*&Este grupo desenvolve trabalhos nas seguintes áreas: análise e projeto de sistemas de controle avançado; análise, modelagem e identificação de sistemas; e filtragem estocástica de sistemas dinâmicos.&*Processamento de Sinais, Inteligência Computacional e Telecomunicações (GPSICT*&Este grupo de pesquisa está inseridos na linha de pesquisa de Controle e Processamento de Sinais. Os projetos desenvolvidos consideram bases de dados reais para propor soluções de desenvolvimento de sistemas e aprimoramento das taxas de acerto, com simulações de sistemas em tempo real e estratégias avançadas de processamento de dados e inteligência computacional, por exemplo, em processos de mineração e problemas biomédicos.",
     },
@@ -237,15 +237,17 @@ export const colegiate_info = {
   },
   scholarship: {
     text: "Os alunos podem acessar a diferentes tipos de bolsas detalhados a seguir:",
-    tiypes: [
+    types: [
       {
+        id: "ic",
         name: "BOLSAS DE PESQUISA / INICIAÇÃO CIENTÍFICA",
         desc: "Estas se oferecem através de Editais coordenado pela Pró-Reitoria de Pós-Graduação (PROOP) duas vezes por ano. Tem por finalidade proporcionar ao aluno dos cursos de graduação incentivo à pesquisa, colocando-o sob a orientação de professores.",
         instruc:
-          "Contate-se com um professor da área de seu interesse, o qual deverá submeter um projeto nas datas indicadas pelo Edital. Mais informações... Pró-Reitoria de Pós-Graduação",
+          "Contate-se com um professor da área de seu interesse, o qual deverá submeter um projeto nas datas indicadas pelo Edital. Mais informações, Pró-Reitoria de Pós-Graduação",
         link: "https://propp.ufop.br/pt-br/pesquisa/iniciacao-cientifica",
       },
       {
+        id: "extensao",
         name: "BOLSAS DE EXTENSÃO",
         desc: "Estas se oferecem através de Editais coordenado pela Pró-Reitoria de Extensão (PROEX) uma vez por ano. Tem por finalidade promover uma aproximação mais imediata entre a Universidade e a sociedade.",
         instruc:
@@ -253,6 +255,7 @@ export const colegiate_info = {
         link: "https://proex.ufop.br/",
       },
       {
+        id: "institutional",
         name: "BOLSAS INSTITUCIONAIS",
         desc: "Estas bolsas estão associadas em algumas áreas da universidade, as quais focam em aspectos indicados no Plano de Desenvolvimento Institucional (PDI) da UFOP.",
         instruc:
@@ -260,6 +263,7 @@ export const colegiate_info = {
         link: "https://proplad.ufop.br/bolsas-de-desenvolvimento-institucional",
       },
       {
+        id: "pro-ativa",
         name: "BOLSAS PRO-ATIVA",
         desc: "Estas se oferecem através de Editais coordenado pela Pró-Reitoria de Graduação (PROGRAD) uma vez por ano. Tem por finalidade de contribuir para a melhoria do ensino de graduação, intensificando a cooperação acadêmica entre o corpo discente e o docente por meio de novas práticas e experiências pedagógicas e profissionais, que atendam a interesses individuais e sociais",
         instruc:
@@ -267,6 +271,7 @@ export const colegiate_info = {
         link: "https://prograd.ufop.br/%3Cnolink%3E/pro-ativa",
       },
       {
+        id: "monitoria",
         name: "BOLSAS DE MONITORIA",
         desc: "Estas se oferecem através de Editais coordenado pela Pró-Reitoria de Graduação (PROGRAD) duas vezes por ano. Tem por finalidade realizar atividades de caráter pedagógico desenvolvido pelo monitor com estudantes de uma determinada disciplina, visando a esclarecimentos quanto ao conteúdo da disciplina e à superação de dificuldades de aprendizado.",
         instruc:
@@ -274,6 +279,7 @@ export const colegiate_info = {
         link: "https://prograd.ufop.br/%3Cnolink%3E/monitoria",
       },
       {
+        id: "alimentacao",
         name: "BOLSAS DE ALIMENTAÇÃO - BOLSA PERMANÊNCIA - BOLSA TRANSPORTE",
         desc: "Redução ou isenção do preço das refeições fornecidas nos Restaurantes Universitários. Em épocas previamente divulgadas, podem ser preenchidos os formulários de avaliação juntamente com os documentos que comprovem a situação socioeconômica do aluno, são encaminhados à Pró-Reitoria de Assuntos Comunitários (PRACE) para análise",
         instruc:

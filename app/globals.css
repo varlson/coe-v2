@@ -5,6 +5,7 @@
 @import url("../public/css/util.css");
 @import url("../public/css/typography.css");
 @import url("../public/css/cards.css");
+@import url("../public/css/animations.css");
 
 .bg-anim {
   animation: bg-anim-name 1s forwards;

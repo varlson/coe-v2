@@ -3,9 +3,17 @@
 }
 
 .title2 {
-  @apply text-xl font-semibold font-jura;
+  @apply text-xl font-bold font-jura;
 }
 
 .title3 {
-  @apply font-semibold font-oswald;
+  @apply font-bold  font-jura;
+}
+
+.scholarship {
+  @apply title3 text-white bg-red900 px-4 py-2 rounded;
+}
+
+.scholarship-text {
+  @apply mt-2 text-justify;
 }

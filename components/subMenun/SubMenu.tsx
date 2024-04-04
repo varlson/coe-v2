@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import SubMenuItem from "../ui/SubMenuItem";
 import { defaultSubMenus, IconTypes, SubMenuItemsType } from "@/types/types";
 import Icon from "../ui/icons/Icon";
-import { menus } from "@/constants/labels";
+// import { menus } from "@/constants/labels";
 import { useContextApp } from "@/context/Context";
+import { menus } from "@/constants/lan/pt";
 
 function SubMenu() {
   const { lanInitializer, menuLan } = useContextApp();

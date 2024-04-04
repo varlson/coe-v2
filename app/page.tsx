@@ -13,8 +13,8 @@ export default function Home() {
     setIsOpen(false);
   };
   return (
-    <main className="w-9/12 m-auto ">
-      <div className="text-white fixed left-0 right-0  asides ">
+    <main className="md:w-9/12 m-auto px-5 md:px-0">
+      <div className="text-white md:fixed hidden left-0 right-0  asides ">
         <div className="flex justify-between ">
           <div className="ml-4">
             <LeftSide />

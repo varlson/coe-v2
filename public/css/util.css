@@ -113,3 +113,24 @@
 .link {
   @apply text-blue-500 hover:underline;
 }
+
+.mob-submenu-out {
+  max-height: 0px;
+  overflow: hidden;
+  animation: tessst 2s ease-in-out;
+}
+
+.mob-submenu-in {
+  max-height: fit-content;
+  animation: tessst 2s ease-in-out;
+}
+
+@keyframes tessst {
+  from {
+    max-height: 0px;
+  }
+
+  to {
+    max-height: fit-content;
+  }
+}

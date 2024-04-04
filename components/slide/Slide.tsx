@@ -12,8 +12,8 @@ import SlideItem from "@/components/ui/slideItem/SlideItem";
 
 function Slide() {
   return (
-    <div className="h-[calc(100vh-162px)] bg-slate-400">
-      <div className="bg-orange-300 h-full">
+    <div className="md:h-[calc(100vh-200px)] bg-slate-40 ">
+      <div className=" ">
         <Swiper
           pagination={{
             type: "progressbar",

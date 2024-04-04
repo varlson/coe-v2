@@ -5,6 +5,7 @@ import SpinnerModal from "./SpinnerModal";
 import { IconTypes, LanLabelType } from "@/types/types";
 import { labelLanguage } from "@/constants/labels";
 import { useContextApp } from "@/context/Context";
+import { useMediaQuery } from "react-responsive";
 
 const defaultValues = {
   pt: false,
@@ -18,9 +19,9 @@ function LanguageControl() {
   const { lanInitializer } = useContextApp();
 
   const [lanLabel, setLanLabel] = useState<LanLabelType>({
-    pt: "Português",
-    es: "Espanhol",
-    en: "Inglês",
+    pt: "PT",
+    es: "ES",
+    en: "IN",
   });
 
   const handleChange = async (e: ChangeEvent<HTMLSelectElement>) => {
@@ -80,10 +81,17 @@ function LanguageControl() {
           className="px-1  py-0 font-jura text-sm font-bold active:text-white active:bg-slate-700"
           name="language"
           id="language"
+          defaultValue={"pt"}
         >
-          <option selected={selectOpstions.pt} className="mt-3 py-3" value="pt">
+          <option
+            defaultValue={"DEFAULT"}
+            selected={selectOpstions.pt}
+            className="mt-3 py-3"
+            value="pt"
+          >
             {lanLabel.pt}
           </option>
+
           <option selected={selectOpstions.es} className="mt-3 py-3" value="es">
             {lanLabel.es}
           </option>

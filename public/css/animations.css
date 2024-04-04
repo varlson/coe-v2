@@ -1,0 +1,29 @@
+.menu-mob-wrap {
+  z-index: 2;
+  left: 0;
+  right: 100%;
+  overflow: hidden;
+}
+
+.mob-menu-content {
+  z-index: 10;
+}
+
+.mob-submenu-anim {
+  animation: mob-submenu-anim-key 0.5s forwards;
+}
+
+@keyframes mob-submenu-anim-key {
+  from {
+    right: 100%;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+.mob-items {
+  max-height: 0px;
+  overflow: hidden;
+}
