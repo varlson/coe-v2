@@ -3,12 +3,15 @@ import Info from "@/components/Info/Info";
 import Modal from "@/components/modal/Modal";
 import Icon from "@/components/ui/icons/Icon";
 import { colegiate_info } from "@/constants/lan/pt";
+import { useContextApp } from "@/context/Context";
 import { IconTypes, ModalTypes } from "@/types/types";
 import Image from "next/image";
 import React, { useState } from "react";
 
 function Page() {
-  const { coe_statistics } = colegiate_info;
+  const { Colegiate_Info } = useContextApp();
+  const { coe_statistics } = Colegiate_Info;
+
   const [modal, setModal] = useState(false);
   const [src, setSrc] = useState<string>("");
 
@@ -38,7 +41,7 @@ function Page() {
           />
         </div>
       </Modal>
-      <Info title="COEE em Números">
+      <Info title={coe_statistics.title}>
         <div className="flex flex-wrap justify-center">
           {coe_statistics.stats.map((item, index) => (
             <div

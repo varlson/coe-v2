@@ -23,7 +23,7 @@ function Video({ url }: { url: string }) {
         onLoad={loading}
         src={url}
         title="Sobre o curso"
-        className="w-10/12 h-96 object-fill m-auto rounded"
+        className="md:w-10/12 md:h-96  h-52 object-fill m-auto rounded"
         allowFullScreen
       ></iframe>
     </div>

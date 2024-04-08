@@ -14,12 +14,12 @@ export default function Home() {
   };
   return (
     <main className="md:w-9/12 m-auto px-5 md:px-0">
-      <div className="text-white md:fixed hidden left-0 right-0  asides ">
-        <div className="flex justify-between ">
-          <div className="ml-4">
+      <div className="text-white md:block fixed hidden left-0 right-0  asides ">
+        <div className="flex justify-between">
+          <div className="ml-4   p-4">
             <LeftSide />
           </div>
-          <div className="mr-4">
+          <div className="mr-4 ">
             <RightSide />
           </div>
         </div>

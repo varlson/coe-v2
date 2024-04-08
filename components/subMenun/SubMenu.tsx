@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import SubMenuItem from "../ui/SubMenuItem";
 import { defaultSubMenus, IconTypes, SubMenuItemsType } from "@/types/types";
 import Icon from "../ui/icons/Icon";
-// import { menus } from "@/constants/labels";
 import { useContextApp } from "@/context/Context";
 import { menus } from "@/constants/lan/pt";
 
 function SubMenu() {
   const { lanInitializer, menuLan } = useContextApp();
   const [defaultLan, setDefaultLan] = useState(menus);
+
   const [subMenus, setSubMenus] = useState<SubMenuItemsType>(defaultSubMenus);
-  const expandHandle = (curr: string) => {
+  const expandHandle = (curr: keyof SubMenuItemsType) => {
     if (!subMenus[curr]) {
       setSubMenus({ ...defaultSubMenus, [curr]: true });
 
@@ -120,7 +120,7 @@ function SubMenu() {
             subMenus.search ? "bg-dred" : ""
           } flex gap-x-2 p-2  items-center cursor-pointer`}
         >
-          <p className="title1">{defaultLan[4].menu}</p>
+          <p className="title1 sub-menu-item">{defaultLan[4].menu}</p>
           <Icon
             styles={`h-4 w-5 ${
               subMenus.search ? "expand-collapse-in" : "expand-collapse-out"

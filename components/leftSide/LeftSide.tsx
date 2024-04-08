@@ -3,7 +3,7 @@ import React from "react";
 
 function LeftSide() {
   return (
-    <div className="bg-red-500 px-5 text-center font-play_fair py-2 ">
+    <div className=" bg-red-500 px-5 text-center font-play_fair py-2 ">
       <p className="w-20 border-b title2">Menu</p>
       <ul className=" list-disc flex flex-col gap-y-2">
         <li className="border-b">

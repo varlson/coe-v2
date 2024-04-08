@@ -116,6 +116,7 @@
 
 .mob-submenu-out {
   max-height: 0px;
+  max-width: 0px;
   overflow: hidden;
   animation: tessst 2s ease-in-out;
 }
@@ -133,4 +134,11 @@
   to {
     max-height: fit-content;
   }
+}
+
+.sub-menu-item {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

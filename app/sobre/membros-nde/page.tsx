@@ -1,3 +1,4 @@
+"use client";
 import Icon from "@/components/ui/icons/Icon";
 import { colegiate_info } from "@/constants/lan/pt";
 import { IconTypes } from "@/types/types";
@@ -5,15 +6,19 @@ import Link from "next/link";
 import React from "react";
 
 import { Metadata } from "next";
+import { useContextApp } from "@/context/Context";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "COE - Membros da NDE",
-  },
-};
+// export const metadata: Metadata = {
+//   title: {
+//     absolute: "COE - Membros da NDE",
+//   },
+// };
 
-function page() {
-  const { members } = colegiate_info;
+function Page() {
+  // const { members } = colegiate_info;
+
+  const { Colegiate_Info } = useContextApp();
+  const { members } = Colegiate_Info;
 
   return (
     <div className="w-9/12 bg-white py-2 px-4  m-auto mt-1">
@@ -39,4 +44,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

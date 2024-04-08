@@ -1,21 +1,21 @@
+"use client";
 import Icon from "@/components/ui/icons/Icon";
 import Video from "@/components/video/Video";
-import { colegiate_info } from "@/constants/lan/pt";
 import { IconTypes } from "@/types/types";
 import React from "react";
+import { useContextApp } from "@/context/Context";
+// import { Metadata } from "next";
+// export const metadata: Metadata = {
+//   title: {
+//     absolute: "COE - Colegiado",
+//   },
+// };
 
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: {
-    absolute: "COE - Colegiado",
-  },
-};
-
-function page() {
-  const { about_colegiate } = colegiate_info;
+function Page() {
+  const { Colegiate_Info } = useContextApp();
+  const { about_colegiate } = Colegiate_Info;
   return (
-    <div className="w-9/12 bg-white py-2 px-4  m-auto mt-1">
+    <div className="md:w-9/12 bg-white py-2 px-4  m-auto mt-1">
       <fieldset className=" border border-dashed border-separate border-red900">
         <legend className=" px-4 mx-6 rounded">
           <div className="flex gap-x-4 info-title rounded">
@@ -28,7 +28,7 @@ function page() {
           </div>
         </legend>
         <div className="body-info">
-          {colegiate_info.about_nde.text.split("&").map((parag, index) => (
+          {Colegiate_Info.about_nde.text.split("&").map((parag, index) => (
             <p key={index} className=" text-justify my-2">
               {parag}
             </p>
@@ -42,7 +42,7 @@ function page() {
           </ul>
 
           <div className="mt-4 ">
-            <Video url={colegiate_info.about_colegiate.url} />
+            <Video url={Colegiate_Info.about_colegiate.url} />
           </div>
         </div>
       </fieldset>
@@ -50,4 +50,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

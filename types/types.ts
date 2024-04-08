@@ -1,3 +1,4 @@
+import { colegiate_info } from "@/constants/lan/en";
 import React from "react";
 
 export enum ModalTypes {
@@ -72,6 +73,8 @@ export type IPost = {
   postType: number;
   author: any;
   edit_by?: any;
+  slug: string;
+  author_name: string;
 };
 
 export interface IUser extends Document {
@@ -95,3 +98,20 @@ export enum PostTypes {
   NOTICE_AND_NEWS,
   ALL,
 }
+
+export type MobileMenuPropsType = {
+  isOpen: boolean;
+  setIsOpen: () => void;
+};
+
+export const weekDay = [
+  "Domingo",
+  "Segunda-feira",
+  "Terça-feira",
+  "Quarta-feira",
+  "Quinta-feira",
+  "Sexta-feira",
+  "Sábado",
+];
+
+export type ColegiaInfoType = typeof colegiate_info;

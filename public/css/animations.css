@@ -10,7 +10,7 @@
 }
 
 .mob-submenu-anim {
-  animation: mob-submenu-anim-key 0.5s forwards;
+  animation: mob-submenu-anim-key 0.3s forwards;
 }
 
 @keyframes mob-submenu-anim-key {
