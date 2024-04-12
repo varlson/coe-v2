@@ -265,6 +265,7 @@ export const EducationEN = {
     ],
   },
   course_curriculum: {
+    menu: "Course curriculum",
     content: [
       {
         label:
@@ -282,6 +283,7 @@ export const EducationEN = {
     ],
   },
   teachers: {
+    menu: "Teachers",
     departments: [
       {
         logo: "decea_logo.jpg",
@@ -298,10 +300,12 @@ export const EducationEN = {
     ],
   },
   course_menu: {
+    menu: "Course syllabi",
     text: "Access the link to the pedagogical project of the Electrical Engineering course",
     link: "https://drive.google.com/file/d/0B2du5p-U6wZIa1pzaWphcEV6MEU/view?usp=sharing",
   },
   course_evaluation: {
+    menu: "Course Evaluation",
     text: "More information",
     link: "https://ufop.br/noticias/graduacao/divulgada-classificacao-dos-cursos-estrelados-pelo-guia-do-estudante",
   },

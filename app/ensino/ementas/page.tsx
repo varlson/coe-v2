@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import InfoPage from "./InfoPage";
 
 export const metadata: Metadata = {
   title: {
@@ -8,7 +9,11 @@ export const metadata: Metadata = {
 };
 
 function page() {
-  return <div></div>;
+  return (
+    <div>
+      <InfoPage />
+    </div>
+  );
 }
 
 export default page;

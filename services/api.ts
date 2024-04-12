@@ -45,8 +45,6 @@ export const fetchOnPost = async (id: string, lan = "pt") => {
       );
 
       const postsResp = await fetchResp.json();
-      console.log("resolve");
-      console.log(postsResp.status);
 
       if (postsResp.status) {
         resolve({ status: true, posts: postsResp.content });
@@ -54,8 +52,6 @@ export const fetchOnPost = async (id: string, lan = "pt") => {
         reject({ status: false, error: postsResp.error });
       }
     } catch (error: any) {
-      console.log("error catch");
-      console.log(error.message);
       reject({ status: false, error: error.message });
     }
   });
@@ -78,8 +74,6 @@ export const fetchOnPostSlug = async (slug: string, lan = "pt") => {
       );
 
       const postsResp = await fetchResp.json();
-      console.log("resolve");
-      console.log(postsResp.status);
 
       if (postsResp.status) {
         resolve({ status: true, posts: postsResp.content });
@@ -87,8 +81,6 @@ export const fetchOnPostSlug = async (slug: string, lan = "pt") => {
         reject({ status: false, error: postsResp.error });
       }
     } catch (error: any) {
-      console.log("error catch");
-      console.log(error.message);
       reject({ status: false, error: error.message });
     }
   });
@@ -111,8 +103,6 @@ export const fetchOnUser = async (id: string) => {
       );
 
       const postsResp = await fetchResp.json();
-      console.log("resolve");
-      console.log(postsResp.status);
 
       if (postsResp.status) {
         resolve({ status: true, user: postsResp.content });
@@ -120,8 +110,6 @@ export const fetchOnUser = async (id: string) => {
         reject({ status: false, error: postsResp.error });
       }
     } catch (error: any) {
-      console.log("error catch");
-      console.log(error.message);
       reject({ status: false, error: error.message });
     }
   });

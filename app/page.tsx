@@ -1,17 +1,27 @@
 "use client";
 import Cards from "@/components/card/Cards";
 import LeftSide from "@/components/leftSide/LeftSide";
-import Modal from "@/components/modal/Modal";
 import RightSide from "@/components/rightSide/RightSide";
 import Slide from "@/components/slide/Slide";
-import { ModalTypes } from "@/types/types";
-import { useState } from "react";
+import ErrorMessage from "@/components/ui/errorMsg/ErrorMessage";
+import { useContextApp } from "@/context/Context";
+import { IPost } from "@/types/types";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const setClose = () => {
-    setIsOpen(false);
-  };
+  const { postsSetter, Posts } = useContextApp();
+  const [slides, setIslides] = useState<IPost[]>([]);
+  const [errorMsg, setErrorMsg] = useState<null | string>(null);
+  useEffect(() => {
+    const fetcDatas = async () => {
+      const filterd = await Posts.filter((post) => {
+        return post.postType == 1;
+      });
+      setIslides(filterd);
+    };
+    fetcDatas();
+  }, [postsSetter, Posts.length]);
+
   return (
     <main className="md:w-9/12 m-auto px-5 md:px-0">
       <div className="text-white md:block fixed hidden left-0 right-0  asides ">
@@ -24,12 +34,24 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mt-4 ">
-        <Slide />
-      </div>
+      {errorMsg ? (
+        <ErrorMessage errorMsg={errorMsg} />
+      ) : (
+        <div className="mt-4 ">
+          {slides.length >= 1 ? (
+            <Slide slides={slides} />
+          ) : (
+            <p className="title3 text-center">Slides ainda não adicionados</p>
+          )}
+        </div>
+      )}
 
-      <div className="my-5">
-        <Cards />
+      <div className="my-5 min-h-screen justify-center items-center flex">
+        {Posts.length >= 1 ? (
+          <Cards />
+        ) : (
+          <p className="title3 text-center">Posts ainda não adicionados</p>
+        )}
       </div>
     </main>
   );

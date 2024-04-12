@@ -25,7 +25,7 @@ function DefaultModal({ isOpen, setIsOpen, children }: DefaultModalProps) {
         id="wrap"
         className={` ${
           isOpen ? "rot-anim" : ""
-        } z-50 relative w-9/12 bg-white `}
+        } z-50 relative md:w-9/12 bg-white `}
       >
         <div className="shadow-md bg-zync-300 border-b p-2 flex ">
           <p className="text-center font-bold flex-1">Modal Title</p>

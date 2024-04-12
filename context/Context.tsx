@@ -1,11 +1,44 @@
 "use client";
-import { menusEN } from "@/constants/lan/en";
-import { menusES } from "@/constants/lan/es";
-import { colegiate_info, menus } from "@/constants/lan/pt";
-import { colegiate_info as ColEn } from "@/constants/lan/en";
-import { colegiate_info as ColEs } from "@/constants/lan/es";
+import {
+  menusEN,
+  SearchEN,
+  ContactsEN,
+  InfraEN,
+  ScholarshipEN,
+  EducationEN,
+  HomeEN,
+} from "@/constants/lan/en";
+import {
+  menusES,
+  SearchES,
+  ContactsES,
+  InfraES,
+  ScholarshipES,
+  EducationES,
+  HomeES,
+} from "@/constants/lan/es";
+import {
+  menusPT,
+  SearchPT,
+  ContactsPT,
+  InfraPT,
+  ScholarshipPT,
+  EducationPT,
+  HomePT,
+} from "@/constants/lan/pt";
+
 import { ColegiaInfoType, IPost, SubMenuType } from "@/types/types";
 import { createContext, useContext, useState } from "react";
+
+type ColegiateInfoType = {
+  Menus: typeof menusPT;
+  Search: typeof SearchPT;
+  Contacts: typeof ContactsPT;
+  Scholarship: typeof ScholarshipPT;
+  Education: typeof EducationPT;
+  Home: typeof HomePT;
+  Infra: typeof InfraPT;
+};
 
 type ContextDataType = {
   lanInitializer: () => Promise<void>;
@@ -14,24 +47,56 @@ type ContextDataType = {
   errorMsg: string | null;
   errorSetter: (error: string) => void;
   postsSetter: (posts: IPost[]) => void;
-  Colegiate_Info: any;
+  Colegiate_Info: ColegiateInfoType;
 };
+
+const ColegiateDefaualt: ColegiateInfoType = {
+  Menus: menusPT,
+  Search: SearchPT,
+  Contacts: ContactsPT,
+  Scholarship: ScholarshipPT,
+  Education: EducationPT,
+  Home: HomePT,
+  Infra: InfraPT,
+};
+
+const ColegiateInfoES: ColegiateInfoType = {
+  Menus: menusES,
+  Search: SearchES,
+  Contacts: ContactsES,
+  Scholarship: ScholarshipES,
+  Education: EducationES,
+  Home: HomeES,
+  Infra: InfraES,
+};
+
+const ColegiateInfoEN: ColegiateInfoType = {
+  Menus: menusEN,
+  Search: SearchEN,
+  Contacts: ContactsEN,
+  Scholarship: ScholarshipEN,
+  Education: EducationEN,
+  Home: HomeEN,
+  Infra: InfraEN,
+};
+
 const defaultDatas = {
   lanInitializer: async () => {},
-  menuLan: [],
+  menuLan: menusPT,
   Posts: [],
   errorMsg: null,
   errorSetter: (error: string) => {},
   postsSetter: (posts: IPost[]) => {},
-  Colegiate_Info: colegiate_info,
+  Colegiate_Info: ColegiateDefaualt,
 };
 const AppContext = createContext<ContextDataType>(defaultDatas);
 
 export function AppWrapper({ children }: { children: React.ReactNode }) {
-  const [menuLan, setMenuLan] = useState<SubMenuType[]>([]);
+  const [menuLan, setMenuLan] = useState<SubMenuType[]>(menusPT);
   const [Posts, setPots] = useState<IPost[]>([]);
   const [errorMsg, setErrorMsg] = useState<null | string>(null);
-  const [Colegiate_Info, setColegiate_Info] = useState<any>(colegiate_info);
+  const [Colegiate_Info, setColegiate_Info] =
+    useState<ColegiateInfoType>(ColegiateDefaualt);
 
   const errorSetter = (error: string) => {
     setErrorMsg(error);
@@ -43,9 +108,13 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
 
   const lanInitializer = async () => {
     const lan = localStorage.getItem("lan") || "pt";
-    const menusLan = lan == "pt" ? menus : lan == "es" ? menusES : menusEN;
+    const menusLan = lan == "pt" ? menusPT : lan == "es" ? menusES : menusEN;
     const currentColInfo =
-      lan == "pt" ? colegiate_info : lan == "es" ? ColEs : ColEn;
+      lan == "pt"
+        ? ColegiateDefaualt
+        : lan == "es"
+        ? ColegiateInfoES
+        : ColegiateInfoEN;
 
     setColegiate_Info(currentColInfo);
     setMenuLan(menusLan);

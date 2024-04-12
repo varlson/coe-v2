@@ -7,10 +7,10 @@ import React from "react";
 function CardItems({ title, body, img, resumo, slug }: IPost) {
   return (
     <Link href={`/noticias/${slug}`}>
-      <div className="my-2 bg-white shadow-md rounded card-item ">
+      <div className="my-2 bg-white shadow-md rounded card-item md:px-0 px-5">
         <Image
           src={img}
-          className="h-44 object-cover"
+          className="h-44 object-cover rounded"
           width={800}
           height={500}
           alt="card"

@@ -4,11 +4,10 @@ import SubMenuItem from "../ui/SubMenuItem";
 import { defaultSubMenus, IconTypes, SubMenuItemsType } from "@/types/types";
 import Icon from "../ui/icons/Icon";
 import { useContextApp } from "@/context/Context";
-import { menus } from "@/constants/lan/pt";
 
 function SubMenu() {
   const { lanInitializer, menuLan } = useContextApp();
-  const [defaultLan, setDefaultLan] = useState(menus);
+  const [defaultLan, setDefaultLan] = useState(menuLan);
 
   const [subMenus, setSubMenus] = useState<SubMenuItemsType>(defaultSubMenus);
   const expandHandle = (curr: keyof SubMenuItemsType) => {
@@ -155,7 +154,7 @@ function SubMenu() {
         } p-2 `}
       >
         {subMenus.home && <SubMenuItem {...menuLan[0]} />}
-        {subMenus.scholarships && <SubMenuItem {...menus[1]} />}
+        {subMenus.scholarships && <SubMenuItem {...menuLan[1]} />}
         {subMenus.course && <SubMenuItem {...menuLan[2]} />}
         {subMenus.infra && <SubMenuItem {...menuLan[3]} />}
         {subMenus.search && <SubMenuItem {...menuLan[4]} />}

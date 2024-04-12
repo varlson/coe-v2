@@ -66,7 +66,7 @@ export const menusES: SubMenuType[] = [
 
 export const ContactsES = {
   menu: "Contatos",
-  contatos: [
+  contacts: [
     {
       link: "secretary",
       depts: "Secretaría del Colegiado de Ingeniería Eléctrica",
@@ -257,6 +257,7 @@ export const EducationES = {
     ],
   },
   course_curriculum: {
+    menu: "Matriz Curricular",
     content: [
       {
         label:
@@ -274,6 +275,7 @@ export const EducationES = {
     ],
   },
   teachers: {
+    menu: "Profesores",
     departments: [
       {
         logo: "decea_logo.jpg",
@@ -290,10 +292,12 @@ export const EducationES = {
     ],
   },
   course_menu: {
+    menu: "Planes de estudio",
     text: "Accede al enlace del proyecto pedagógico del curso de Ingeniería Eléctrica",
     link: "https://drive.google.com/file/d/0B2du5p-U6wZIa1pzaWphcEV6MEU/view?usp=sharing",
   },
   course_evaluation: {
+    menu: "Evaluación del Curso",
     text: "Más información",
     link: "https://ufop.br/noticias/graduacao/divulgada-classificacao-dos-cursos-estrelados-pelo-guia-do-estudante",
   },

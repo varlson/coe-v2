@@ -20,7 +20,7 @@ function SlideItem({
       <div className="absolute slide-resume">
         <p className="w-10/12 m-auto text-justify">
           <Link className="" href={`/noticias/${link}`}>
-            {isSmallDevice ? textSplitter(text, 50) : text}
+            {textSplitter(text, isSmallDevice ? 50 : 200)}
           </Link>
         </p>
       </div>

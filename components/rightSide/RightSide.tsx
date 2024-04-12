@@ -17,7 +17,6 @@ function RightSide() {
 
   useEffect(() => {
     if (Posts.length >= 1) {
-      console.log("change");
       const filtred = Posts.filter((pst) => {
         return pst.postType == PostTypes.NOTICE;
       });

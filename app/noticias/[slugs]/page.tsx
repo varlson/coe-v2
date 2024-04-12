@@ -13,12 +13,12 @@ function Page({ params }: { params: { slugs: string } }) {
 
   useEffect(() => {
     const findBySlug = async () => {
-      const resp = await fetchOnPostSlug(params.slugs);
+      const lan = localStorage.getItem("lan") || "pt";
+      const resp = await fetchOnPostSlug(params.slugs, lan);
       if (resp.status) {
         setPost(resp.posts);
         setIsloading(false);
       } else {
-        console.log(resp);
         setIsloading(false);
       }
     };
@@ -26,14 +26,14 @@ function Page({ params }: { params: { slugs: string } }) {
     findBySlug();
   }, [Posts, params.slugs]);
   return (
-    <div className="w-9/12 m-auto p-2">
+    <div className="md:w-9/12 m-auto p-2">
       {post ? (
         <div className="bg-white shadow px-3 py-2 rounded">
           <p className="title1 text-justify bg-red800 text-white p-2 mb-5 rounded">
             {post.title}
           </p>
           <Image
-            className="object-cover h-96 w-full"
+            className="object-cover h-60 md:h-96 w-full"
             height={800}
             width={1000}
             alt="post"

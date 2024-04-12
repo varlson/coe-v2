@@ -126,6 +126,7 @@ export const EducationPT = {
     ],
   },
   course_curriculum: {
+    menu: "Matriz Curricular",
     content: [
       {
         label:
@@ -143,6 +144,7 @@ export const EducationPT = {
     ],
   },
   teachers: {
+    menu: "Docentes",
     departments: [
       {
         logo: "decea_logo.jpg",
@@ -159,10 +161,12 @@ export const EducationPT = {
     ],
   },
   course_menu: {
+    menu: "Ementas",
     text: "Acesse o link do projeto pedagógico do curso de Engenharia Elétrica",
     link: "https://drive.google.com/file/d/0B2du5p-U6wZIa1pzaWphcEV6MEU/view?usp=sharing",
   },
   course_evaluation: {
+    menu: "Avaliação do Curso",
     text: "Mais informações",
     link: "https://ufop.br/noticias/graduacao/divulgada-classificacao-dos-cursos-estrelados-pelo-guia-do-estudante",
   },
@@ -304,7 +308,7 @@ export const ScholarshipPT = {
 
 export const ContactsPT = {
   menu: "Contatos",
-  contatos: [
+  contacts: [
     {
       link: "secretary",
       depts: "Secretaria do Colegiado da Engenharia Elétrica",

@@ -13,7 +13,7 @@ function LabCard({ name, src, text }: LabPropType) {
 
       <div className="my-1">
         {text.split("&").map((paragraph, index) => (
-          <p className="my-2 text-justify" key={index}>
+          <div className="my-2 text-justify" key={index}>
             {paragraph.includes("<") ? (
               <div>
                 <p className="title3">{paragraph.split("<")[0]}</p>
@@ -29,7 +29,7 @@ function LabCard({ name, src, text }: LabPropType) {
             ) : (
               <p className="text-justify">{paragraph}</p>
             )}
-          </p>
+          </div>
         ))}
       </div>
     </div>
