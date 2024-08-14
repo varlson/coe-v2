@@ -75,6 +75,8 @@ export type IPost = {
   edit_by?: any;
   slug: string;
   author_name: string;
+  en: string;
+  es: string;
 };
 
 export interface IUser extends Document {

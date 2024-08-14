@@ -7,13 +7,8 @@ import { IconTypes } from "@/types/types";
 import SubMenu from "../subMenun/SubMenu";
 import Hamburger from "../ui/hamburger/hamburger";
 import MobileManu from "../mobile/MobileManu";
-import { menus } from "@/constants/lan/pt";
 
 function Navbar() {
-  const teste = () => {
-    const dd = document.getElementById("ttee") as HTMLElement;
-    dd.classList.add("mob-submenu-anim");
-  };
   const [mobMenu, setMonMenu] = useState(false);
   const menuClickHandle = () => {
     setMonMenu(!mobMenu);

@@ -7,16 +7,26 @@ import { dateFormater } from "@/util/util";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 function Page({ params }: { params: { slugs: string } }) {
-  const { Posts } = useContextApp();
+  const { Posts, lan } = useContextApp();
   const [post, setPost] = useState<IPost>();
   const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
     const findBySlug = async () => {
-      const lan = localStorage.getItem("lan") || "pt";
-      const resp = await fetchOnPostSlug(params.slugs, lan);
+      const resp = await fetchOnPostSlug(params.slugs);
       if (resp.status) {
-        setPost(resp.posts);
+        if (lan == "en" || lan == "es") {
+          const [title, resumo, body] = resp.posts[lan].split("=>");
+          const currentPost = {
+            ...resp.posts,
+            title: title,
+            resumo: resumo,
+            body: body,
+          };
+          setPost(currentPost);
+        } else {
+          setPost(resp.posts);
+        }
         setIsloading(false);
       } else {
         setIsloading(false);
@@ -24,7 +34,7 @@ function Page({ params }: { params: { slugs: string } }) {
     };
 
     findBySlug();
-  }, [Posts, params.slugs]);
+  }, [lan]);
   return (
     <div className="md:w-9/12 m-auto p-2">
       {post ? (

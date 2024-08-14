@@ -17,9 +17,13 @@ function CardItems({ title, body, img, resumo, slug }: IPost) {
           placeholder="blur"
           blurDataURL="/imgs/laoding.jpg"
         />
-        <p className="font-playFair px-2 text-justify font-semibold">{title}</p>
+        <p className="font-playFair px-2 text-justify font-semibold max-h-[50px] overflow-hidden text-clip min-h-[50px]">
+          {title}
+        </p>
         <p className="font-jura my-2 text-sm px-2">27 Março 2024</p>
-        <p className="px-2 text-justify text-sm pb-2">{textSplitter(resumo)}</p>
+        <p className="px-2 text-justify text-sm pb-2 max-h-[70px] min-h-[70px]">
+          {textSplitter(resumo)}
+        </p>
       </div>
     </Link>
   );

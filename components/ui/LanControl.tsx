@@ -20,7 +20,7 @@ function LanguageControl() {
   const [errorHandle, setErrorHandle] = useState<string | null>(null);
   const [currentLanguage, setCurrentLanguage] = useState<string>("pt");
   const [isLoading, setIsLoading] = useState(true);
-  const { lanInitializer, postsSetter } = useContextApp();
+  const { updateLan } = useContextApp();
 
   const [lanLabel, setLanLabel] = useState<LanLabelType>({
     pt: "PT",
@@ -28,21 +28,12 @@ function LanguageControl() {
     en: "IN",
   });
 
-  const reloadFetchPost = async (lan: string) => {
-    const resp = await fetchPosts(PostTypes.ALL, lan);
-
-    if (resp.status) {
-      postsSetter(resp.posts);
-    } else {
-      setErrorHandle(resp.error);
-    }
-  };
-
   const handleChange = async (e: ChangeEvent<HTMLSelectElement>) => {
     setIsLoading(true);
     const language = e.target.value || "pt";
     setCurrentLanguage(e.target.value);
     localStorage.setItem("lan", language);
+    updateLan(language);
     let currLabel: LanLabelType;
     if (language == "pt" || language == "es" || language == "en") {
       currLabel = labelLanguage[language];
@@ -50,12 +41,11 @@ function LanguageControl() {
       currLabel = labelLanguage.pt;
     }
     setLanLabel(currLabel);
-    await lanInitializer();
-    await reloadFetchPost(language);
     setIsLoading(false);
   };
 
   const [selectOpstions, setSelectOpstions] = useState(defaultValues);
+
   useEffect(() => {
     const loading = async () => {
       if (!localStorage.getItem("lan")) {
@@ -78,7 +68,6 @@ function LanguageControl() {
         [lan]: true,
       }));
 
-      await reloadFetchPost(lan);
       setIsLoading(false);
     };
 

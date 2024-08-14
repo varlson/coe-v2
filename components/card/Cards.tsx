@@ -1,12 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardItems from "../ui/news-cards/CardItems";
 import { useContextApp } from "@/context/Context";
 import Spiner from "../ui/Spiner";
 import ErrorMessage from "../ui/errorMsg/ErrorMessage";
 
 function Cards() {
-  const { errorMsg, Posts } = useContextApp();
+  const { errorMsg, Posts, CurrentPosts } = useContextApp();
+
+  // const [currentPost, setCurrentPost] = useState(Posts);
+
+  useEffect(() => {
+    console.log(CurrentPosts);
+  }, [CurrentPosts]);
 
   return (
     <div className="">
@@ -22,7 +28,7 @@ function Cards() {
         <div>
           {!errorMsg ? (
             <div className=" grid md:grid-cols-2 grid-cols-1 justify-items-center">
-              {Posts.map((item, index) => (
+              {CurrentPosts.map((item, index) => (
                 <div className="md:px-5" key={index}>
                   <CardItems {...item} />
                 </div>

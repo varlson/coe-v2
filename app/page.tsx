@@ -9,18 +9,13 @@ import { IPost } from "@/types/types";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const { postsSetter, Posts } = useContextApp();
-  const [slides, setIslides] = useState<IPost[]>([]);
+  const { postsSetter, Posts, CurrentPosts } = useContextApp();
+  const [slides, setSlides] = useState<IPost[]>([]);
+
   const [errorMsg, setErrorMsg] = useState<null | string>(null);
   useEffect(() => {
-    const fetcDatas = async () => {
-      const filterd = await Posts.filter((post) => {
-        return post.postType == 1;
-      });
-      setIslides(filterd);
-    };
-    fetcDatas();
-  }, [postsSetter, Posts.length]);
+    setSlides(CurrentPosts.filter((item) => item.postType == 1));
+  }, [CurrentPosts]);
 
   return (
     <main className="md:w-9/12 m-auto px-5 md:px-0">
